@@ -1,0 +1,26 @@
+description: >
+  How to post a status check depending on the job exit code.
+usage:
+  version: 2.1
+  orbs:
+    github-status: assurance-maladie-digital/github-status@1.0.0
+  jobs:
+    report-status:
+      docker:
+        - image: cimg/base
+      steps:
+        - run: echo "Example"
+        - github-status/report
+    report-status-custom:
+      docker:
+        - image: cimg/base
+      steps:
+        - run: echo "Example"
+        - github-status/report:
+            context: ci/integration
+            description: "Integration pipeline result"
+  workflows:
+    usage-example:
+      jobs:
+        - report-status
+        - report-status-custom

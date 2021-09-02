@@ -1,0 +1,26 @@
+description: >
+  How to post a status check only when the job fails.
+usage:
+  version: 2.1
+  orbs:
+    github-status: assurance-maladie-digital/github-status@1.0.0
+  jobs:
+    report-failed-status-only:
+      docker:
+        - image: cimg/base
+      steps:
+        - run: exit 1
+        - github-status/report_failed_only
+    report-failed-status-only-custom:
+      docker:
+        - image: cimg/base
+      steps:
+        - run: exit 1
+        - github-status/report_failed_only:
+            context: ci/integration
+            description: "Integration pipeline failed"
+  workflows:
+    usage-example:
+      jobs:
+        - report-failed-status-only
+        - report-failed-status-only-custom

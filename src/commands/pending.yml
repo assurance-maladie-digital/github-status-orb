@@ -1,0 +1,17 @@
+description: >
+  This command posts a pending status check to Github.
+parameters:
+  description:
+    type: string
+    default: "Pipeline in progress"
+    description: "The description of the status."
+  context:
+    type: string
+    default: $GITHUB_STATUS_CONTEXT
+    description: "The context of the status."
+steps:
+  - post_status:
+      when: always
+      state: pending
+      description: << parameters.description >>
+      context: << parameters.context >>
