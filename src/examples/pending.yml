@@ -1,0 +1,26 @@
+description: >
+  How to post a pending status check.
+usage:
+  version: 2.1
+  orbs:
+    github-status: assurance-maladie-digital/github-status@1.0.0
+  jobs:
+    post-pending-status:
+      docker:
+        - image: cimg/base
+      steps:
+        - run: echo "Example"
+        - github-status/pending
+    post-pending-status-custom:
+      docker:
+        - image: cimg/base
+      steps:
+        - run: echo "Example"
+        - github-status/pending:
+            context: ci/integration
+            description: "Integration pipeline in progress"
+  workflows:
+    usage-example:
+      jobs:
+        - post-pending-status
+        - post-pending-status-custom

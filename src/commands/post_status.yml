@@ -1,0 +1,26 @@
+description: >
+  This command posts a status check to Github.
+parameters:
+  when:
+    type: string
+    default: on_success
+    description: "When to run the command."
+  state:
+    type: string
+    description: "The state of the status."
+  description:
+    type: string
+    default: "Pipeline successful!"
+    description: "The description of the status."
+  context:
+    type: string
+    default: $GITHUB_STATUS_CONTEXT
+    description: "The context of the status."
+steps:
+  - run:
+      environment:
+        STATE: << parameters.state >>
+        CONTEXT: << parameters.context >>
+        DESCRIPTION: << parameters.description >>
+      name: Post Status to Github
+      command: << include(scripts/post_status.sh) >>

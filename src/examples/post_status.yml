@@ -1,0 +1,28 @@
+description: >
+  How to post a status check.
+usage:
+  version: 2.1
+  orbs:
+    github-status: assurance-maladie-digital/github-status@1.0.0
+  jobs:
+    post-status:
+      docker:
+        - image: cimg/base
+      steps:
+        - run: echo "Example"
+        - github-status/post_status:
+            state: success
+    post-status-custom:
+      docker:
+        - image: cimg/base
+      steps:
+        - run: echo "Example"
+        - github-status/post_status:
+            state: success
+            context: ci/integration
+            description: "Integration pipeline successful!"
+  workflows:
+    usage-example:
+      jobs:
+        - post-status
+        - post-status-custom
