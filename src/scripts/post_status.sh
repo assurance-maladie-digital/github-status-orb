@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PostStatus() {
-    [ -n "${CONTEXT}" ] || CONTEXT="circleci/CIRCLE_JOB"
+    [ -n "${CONTEXT}" ] || CONTEXT="circleci/$CIRCLE_JOB"
 
     # Export the latest values for CONTEXT and DESCRIPTION so later calls
     # don't need to set them explicitly again
