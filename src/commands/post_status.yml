@@ -18,9 +18,10 @@ parameters:
     description: "The context of the status."
 steps:
   - run:
+      name: Post Status to Github
+      when: << parameters.when >>
       environment:
         STATE: << parameters.state >>
         CONTEXT: << parameters.context >>
         DESCRIPTION: << parameters.description >>
-      name: Post Status to Github
       command: << include(scripts/post_status.sh) >>
