@@ -1,4 +1,5 @@
 **SEMVER Update Type**
+
 - [ ] Major
 - [ ] Minor
 - [ ] Patch
