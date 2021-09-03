@@ -3,11 +3,11 @@ description: >
 parameters:
   description:
     type: string
-    default: $GITHUB_STATUS_DESCRIPTION
+    default: ""
     description: "The description of the status."
   context:
     type: string
-    default: $GITHUB_STATUS_CONTEXT
+    default: ""
     description: "The context of the status."
 steps:
   - post_status:
