@@ -20,7 +20,7 @@ usage:
         - github-status/post_status:
             state: success
             context: ci/integration
-            description: "Integration pipeline successful!"
+            description: "Integration pipeline successful"
   workflows:
     usage-example:
       jobs:
