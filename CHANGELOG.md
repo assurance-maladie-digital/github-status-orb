@@ -8,10 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Bug fixes
 
- - Fix `report_failed_only` called on success
- - Fix parameters default value
- - Fix default context in post_status script
- - Fix Pull Request template
+- Fix `report_failed_only` called on success
+- Fix parameters default value
+- Fix default context in post_status script
+- Fix Pull Request template
 
 ### Refactoring
 
@@ -21,4 +21,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### New features
 
- - Initial Release
+- Initial Release

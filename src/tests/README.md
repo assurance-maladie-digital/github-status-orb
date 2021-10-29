@@ -9,7 +9,6 @@ This orb is built using the `circleci orb pack` command, which allows the _comma
 ## **Example _command.yml_**
 
 ```yaml
-
 description: A sample command
 
 parameters:
@@ -87,6 +86,6 @@ In this example, we grep the contents of `log.txt.` which should contain a `succ
 ## More informations
 
 See:
- - [BATS Orb](https://circleci.com/orbs/registry/orb/circleci/bats)
- - [Orb Testing CircleCI Docs](https://circleci.com/docs/2.0/testing-orbs)
- - [BATS-Core GitHub](https://github.com/bats-core/bats-core)
+- [BATS Orb](https://circleci.com/orbs/registry/orb/circleci/bats)
+- [Orb Testing CircleCI Docs](https://circleci.com/docs/2.0/testing-orbs)
+- [BATS-Core GitHub](https://github.com/bats-core/bats-core)
