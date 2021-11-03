@@ -27,8 +27,8 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - checkout
-      # - github-status/post_status
+      # The orb relies on external services, we won't test those in integration tests
+      - run: exit 0
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
