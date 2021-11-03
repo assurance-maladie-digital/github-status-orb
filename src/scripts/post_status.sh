@@ -10,7 +10,7 @@ PostStatus() {
 
     URL=$API/repos/$USER/$REPO/statuses/$SHA
 
-    if [ $DEBUG ]; then
+    if [ "$DEBUG" ]; then
         echo "$URL"
     fi
 
@@ -27,7 +27,7 @@ PostStatus() {
         }
     '
 
-    if [ $DEBUG ]; then
+    if [ "$DEBUG" ]; then
         echo "$BODY"
     fi
 
