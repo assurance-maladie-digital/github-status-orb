@@ -16,6 +16,7 @@ usage:
       docker:
         - image: cimg/base
       steps:
+        - run: echo "export TARGET_URL=$CIRCLE_BUILD_URL" >> $BASH_ENV
         - run: echo "Example"
         - github-status/post_status:
             state: success
