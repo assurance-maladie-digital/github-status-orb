@@ -3,11 +3,6 @@
 PostStatus() {
     [ -n "${CONTEXT}" ] || CONTEXT="circleci/$CIRCLE_JOB"
 
-    # Export the latest values for CONTEXT and DESCRIPTION so later calls
-    # don't need to set them explicitly again
-    echo "export GITHUB_STATUS_CONTEXT='$CONTEXT'" >> "$BASH_ENV"
-    echo "export GITHUB_STATUS_DESCRIPTION='$DESCRIPTION'" >> "$BASH_ENV"
-
     API=https://api.github.com
     USER=$CIRCLE_PROJECT_USERNAME
     REPO=$CIRCLE_PROJECT_REPONAME
@@ -15,7 +10,9 @@ PostStatus() {
 
     URL=$API/repos/$USER/$REPO/statuses/$SHA
 
-    [[ $DEBUG ]] && echo "$URL"
+    if [ $DEBUG ]; then
+        echo "$URL"
+    fi
 
     ACCEPT="Accept: application/vnd.github.v3+json"
 
@@ -30,7 +27,9 @@ PostStatus() {
         }
     '
 
-    [[ $DEBUG ]] && echo "$BODY"
+    if [ $DEBUG ]; then
+        echo "$BODY"
+    fi
 
     curl -H "$ACCEPT" -u "$AUTH" -d "$BODY" -X POST "$URL"
 }
