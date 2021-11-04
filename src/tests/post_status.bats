@@ -17,6 +17,5 @@ setup() {
 
     result=$(echo $(PostStatus)|tr -d '\n')
 
-    # Validate the body
     [ "$result" == '{ "state": "'"$STATE"'", "target_url": "'"$TARGET_URL"'", "description": "'"$DESCRIPTION"'", "context": "'"$CONTEXT"'" }' ]
 }

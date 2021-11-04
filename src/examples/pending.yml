@@ -3,7 +3,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    github-status: assurance-maladie-digital/github-status@1.0.0
+    github-status: assurance-maladie-digital/github-status@1.2.0
   jobs:
     post-pending-status:
       docker:
@@ -15,6 +15,7 @@ usage:
       docker:
         - image: cimg/base
       steps:
+        - run: echo "export TARGET_URL=$CIRCLE_BUILD_URL" >> $BASH_ENV
         - run: echo "Example"
         - github-status/pending:
             context: ci/integration
